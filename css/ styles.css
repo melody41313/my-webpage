@@ -1,0 +1,353 @@
+
+/* 🪧 卡片容器設計 */
+.card-container {
+    background: linear-gradient(to right, #f7eee8, #f6f0e1); /* 85% 透明度 */
+    backdrop-filter: blur(10px); /* 霧化效果 */
+    border-radius: 20px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    padding: 20px 10px;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+
+/* 🗂️ 卡片內部標題設計 */
+.card-container h2 {
+    color: #5e320e;
+    font-size: 20px;
+  
+}
+
+
+
+
+/* 🌟 基本設定 */
+body {
+    
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #ffffff;
+color: #414141;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* －分隔線 */
+hr {
+    border: none;
+    height: 1px;
+    width: 80%;
+    margin: 20px auto;
+    background: linear-gradient(to right, #fedbc1, #ffe8c5);
+    border-radius: 2px;
+}
+
+/* 📦 主要區塊 */
+.container {
+    flex: 1;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* 🔖 標籤 */
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.tag {
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: #e8e2da;
+    cursor: pointer;
+    transition: linear-gradient 0.3s;
+}
+
+.tag.selected {
+    background: linear-gradient(135deg, #eca150, #eab464);
+    color: white;
+}
+
+/* 🔍 輸入框 */
+.input-box {
+    border: 1px solid #e8e2da;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 16px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.6s ease;
+}
+
+.input-box:focus {
+    border-color: #FF6600;
+    box-shadow: 0 0 0px rgba(255, 102, 0, 0.4);
+}
+
+/* 🛎️ 按鈕 */
+.btn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn.small {
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+/* 🌀 按鈕漸層 */
+.orange-gradient {
+    background: linear-gradient(135deg, #FF6600, #FF9900);
+}
+
+.blue-gradient {
+    background: linear-gradient(135deg, #6A11CB, #2575FC);
+}
+
+.blue-gradient:hover {
+    background: linear-gradient(135deg, #4E65FF, #92EFFD);
+}
+
+
+
+
+/* 📢 提示訊息 */
+.custom-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #FF6600, #FF9900);
+    color: #fff;
+    border-radius: 10px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.custom-message.show {
+    opacity: 1;
+    top: 40px;
+}
+
+
+/* 🌐 信箱彈窗 */
+.email-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    text-align:center;
+    width: 500px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #FF6600;
+}
+
+
+/* 🖼️ 確認跟取消按鈕 調整間距 */
+.popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 按鈕之間的間距 */
+    margin-top: 12px; /* 調整與輸入框之間的上下間距 */
+    margin-bottom: 1px; /* 調整與下方內容的間距 */
+}
+
+
+/* 🚫 蒙版 */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9990;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+/* 🔍 自訂輸入框區塊間距 */
+.custom-input {
+    margin-top: 10px;
+    margin-bottom: 20px; /* 新增下邊距 */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 🛠️ 自訂關鍵字區塊 */
+#custom-tags-container {
+    margin-top: 15px;  /* 增加上邊距 */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* 內部標籤間距 */
+    justify-content: center; /* 水平置中對齊 */
+    align-items: center; /* 垂直置中 */
+    text-align: center;
+}
+
+/* 🔄 將 frequency-select 和 time-picker  */
+.time-frequency-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* 保持欄位間距 */
+    margin-top: 20px;
+}
+
+/* 調整 時間 的框 */
+.select-group select,
+.time-picker input[type="time"] {
+    height: 48px; 
+    min-width: 200px;
+    padding: 10px 15px;
+    border: 1px solid #e8e2da;
+    border-radius: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+}
+
+/* 📏 調整 每日 的框 */
+.select-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-width: 100px; /* 調整寬度 */
+    height: 48px;
+    padding: 10px 40px 10px 15px; /* 調整內距，確保箭頭顯示 */
+    text-align: center;
+    border: 1px solid #e8e2da;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+
+    /* 🔻 自訂下拉箭頭 */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><polygon points='3,5 11,5 7,10' fill='%23333'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px 14px;
+}
+
+.select-group select:hover {
+    border-color: #FF6600;
+}
+
+.select-group select:focus {
+    border-color: #FF6600;
+    box-shadow: 0 0 0px rgba(255, 102, 0, 0.5);
+}
+
+
+
+
+/* 🗒️ 模擬記事本紙張 */
+#summary-text {
+    background: repeating-linear-gradient(
+        white 0px,
+        white 30px,
+        #e6e6e6 31px
+    );
+    color: #333;
+    border-radius: 8px;
+    line-height: 30px;
+    border-left: 6px solid #31039e; /* 左側線 */
+ padding: 20px;
+    margin: 20px;
+    position: relative;
+    
+}
+
+
+/* 🖍️ 頻率字串（藍色 + 螢光筆效果） */
+.freq-text {
+    color: #31039e;
+    display: inline-block;
+    background-color: #FFF4E5; /* 淡橘色背景 */
+    font-weight: bold;
+    border: 0px solid #FF6600; /* 邊框 */
+    border-radius: 15px; /* 圓角 */
+    padding: 2px 8px; /* 內邊距 */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+
+/* 🏷️ 標籤字串（橘色框框，與自訂關鍵字相同） */
+.tags-text {
+    display: inline-block;
+    background-color: #FFF4E5; /* 淡橘色背景 */
+    color: #31039e;
+    border: 0px solid #FF6600; /* 邊框 */
+    border-radius: 15px; /* 圓角 */
+    padding: 2px 8px; /* 內邊距 */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+
+/* 🏆 增加 footer 與上方內容的間距 */
+.footer {
+    margin-top: 50px; /* 調整為 50px，可依需求修改 */
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+.footer .logo {
+    height: 30px;
+    margin: 5px;
+}
