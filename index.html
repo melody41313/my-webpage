@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人化新聞訂閱 - TNL MediaGene</title>
+    <link rel="stylesheet" href="file:///Users/melody/Desktop/web/test2/%20styles.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- 📰 標題區 -->
+        <header>
+            <h1>讓新聞更符合你的節奏</h1>
+            <p>打造你的AI個人電子報！</p>
+        </header>
+
+        <!-- 📰 標題區 -->
+<div class="card-container">
+    <section class="news-selection box">
+        <h2>你的新聞類型</h2>
+        <div id="tags-container" class="flex-wrap">
+            <span class="tag" onclick="toggleTag(this)">科技</span>
+            <span class="tag" onclick="toggleTag(this)">財經</span>
+            <span class="tag" onclick="toggleTag(this)">體育</span>
+            <span class="tag" onclick="toggleTag(this)">娛樂</span>
+            <span class="tag" onclick="toggleTag(this)">國際</span>
+            <span class="tag" onclick="toggleTag(this)">藝術</span>
+            <span class="tag" onclick="toggleTag(this)">健康</span>
+            <span class="tag" onclick="toggleTag(this)">教育</span>
+            <span class="tag" onclick="toggleTag(this)">旅遊</span>
+            <span class="tag" onclick="toggleTag(this)">美食</span>
+            <span class="tag" onclick="toggleTag(this)">汽車</span>
+            <span class="tag" onclick="toggleTag(this)">動漫</span>
+            <span class="tag" onclick="toggleTag(this)">政治</span>
+            <span class="tag" onclick="toggleTag(this)">文化</span>
+            <span class="tag" onclick="toggleTag(this)">音樂</span>
+            <span class="tag" onclick="toggleTag(this)">電競</span>
+        </div>
+        <hr>
+        <p class="custom-title">以上類型還不夠？自訂你的新聞關鍵字！</p>
+        <div class="custom-input">
+            <input type="text" id="custom-keyword" class="input-box" placeholder="輸入你的關鍵字">
+            <button class="btn blue-gradient small" onclick="addCustomKeyword()">新增</button>
+        </div>
+        <div id="custom-tags-container"></div>
+        <p class="error-message" id="error-message"></p>
+    </section>
+</div>
+
+<!-- 🕒 發送頻率與時間選擇 -->
+<div class="card-container">
+    <section class="news-time box">
+        <h2>發送頻率與時間</h2>
+        <div class="time-frequency-row">
+            <div class="select-group">
+                <select id="frequency-select" class="input-box" onchange="updateSummary()">
+                    <option value="每日" selected>每日</option>
+                    <option value="每週">每週</option>
+                    <option value="每月">每月</option>
+                </select>
+            </div>
+            <div class="time-picker">
+                <input type="time" id="global-time" name="global-time" class="input-box" value="09:00" onchange="updateSummary()">
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- 📝 訂閱摘要 -->
+<div class="card-container">
+    <section class="summary box">
+        <h2>預覽訂閱設定</h2>
+    <p id="summary-text">
+        請選擇<span class="highlight-type">新聞類型</span>、<span class="highlight-frequency">發送頻率</span>與<span class="highlight-time">時間</span>，<br>我們將為你客製新聞電子報！
+    </p>
+    </section>
+</div>
+
+      
+
+        <!-- 📩 訂閱按鈕 -->
+        <button id="subscribe-btn" class="btn orange-gradient">📨 馬上訂閱</button>
+        <p id="success-message" class="hidden">🎉 訂閱成功！你的個人化新聞將依照設定發送。</p>
+
+        <!-- 📧 信箱輸入彈窗 -->
+        <div class="email-popup hidden" id="emailPopup">
+            <div class="email-popup-content">
+                <button class="close-btn" onclick="closePopup()">✖</button>
+                <h3>請輸入您的電子郵件地址</h3>
+                <input type="email" id="emailInput" class="input-box" placeholder="example@domain.com" />
+                <div class="popup-actions">
+                    <button class="btn orange-gradient small" onclick="submitEmail()">確認</button>
+                    <button class="btn blue-gradient small" onclick="closePopup()">取消</button>
+                </div>
+                <p class="email-error" id="emailError"></p>
+            </div>
+        </div>
+
+        <!-- 蒙版 -->
+        <div class="overlay hidden" id="overlay"></div>
+
+        <!-- 📢 Footer -->
+        <footer class="footer">
+            <p>新聞來源</p>
+            <div class="news-logos">
+                <img src="https://www.tnlmediagene.com/assets/images/logo/logo-tnl-zh.png" alt="TNL MediaGene" class="logo enlarged">
+                <img src="https://www.tnlmediagene.com/assets/images/logo/logo-agentm.png" alt="Agent M" class="logo enlarged">
+                <img src="https://www.businessyee.com/assets/images/logo-header-lg.svg" alt="Business Yee" class="logo">
+                <img src="https://www.tnlmediagene.com/assets/images/logo/logo-COOL3C.png" alt="COOL3C" class="logo enlarged">
+            </div>
+        </footer>
+
+    </div>
+
+
+
+
+
+
+    
+
+
+    <script src="file:///Users/melody/Desktop/web/test2/script.js"></script>
+</body>
+</html>
