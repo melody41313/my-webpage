@@ -1,6 +1,45 @@
 
+
+
+/* 🌟 基本設定 */
+body {
+    
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #ffffff;
+color: #414141;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+/* 📦 主要區塊 */
+.container {
+    flex: 1;
+    margin: auto;
+    padding: 20px;
+}
+
+
+
+/* －分隔線 */
+hr {
+    border: none;
+    height: 1px;
+    width: 80%;
+    margin: 20px auto;
+    background: linear-gradient(to right, #fedbc1, #ffe8c5);
+    border-radius: 2px;
+}
+
 /* 🪧 卡片容器設計 */
 .card-container {
+    max-width: 600px;
     background: linear-gradient(to right, #f7eee8, #f6f0e1); /* 85% 透明度 */
     backdrop-filter: blur(10px); /* 霧化效果 */
     border-radius: 20px;
@@ -19,40 +58,6 @@
 }
 
 
-
-
-/* 🌟 基本設定 */
-body {
-    
-    font-family: 'Noto Sans TC', sans-serif;
-    background: #ffffff;
-color: #414141;
-    text-align: center;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-/* －分隔線 */
-hr {
-    border: none;
-    height: 1px;
-    width: 80%;
-    margin: 20px auto;
-    background: linear-gradient(to right, #fedbc1, #ffe8c5);
-    border-radius: 2px;
-}
-
-/* 📦 主要區塊 */
-.container {
-    flex: 1;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-}
 
 /* 🔖 標籤 */
 .flex-wrap {
@@ -77,6 +82,8 @@ hr {
 
 /* 🔍 輸入框 */
 .input-box {
+    width: 100%; /* 讓輸入框填滿父容器 */
+    max-width: 400px; /* 最大寬度，防止過長 */
     border: 1px solid #e8e2da;
     border-radius: 12px;
     padding: 12px 18px;
@@ -92,6 +99,7 @@ hr {
 
 /* 🛎️ 按鈕 */
 .btn {
+    background: linear-gradient(135deg, #FF6600, #FF9900);
     border: none;
     border-radius: 12px;
     padding: 12px 18px;
@@ -104,28 +112,43 @@ hr {
 
 .btn:hover {
     transform: translateY(-3px);
+    background: linear-gradient(135deg, #FF9900, #FF6600);
 }
 
 .btn.small {
     padding: 10px 16px;
-    font-size: 14px;
-}
-
-/* 🌀 按鈕漸層 */
-.orange-gradient {
+    font-size: 16px;
     background: linear-gradient(135deg, #FF6600, #FF9900);
 }
 
-.blue-gradient {
-    background: linear-gradient(135deg, #6A11CB, #2575FC);
+
+.btn.small:hover {
+    padding: 10px 16px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #FF9900, #FF6600);
 }
 
-.blue-gradient:hover {
-    background: linear-gradient(135deg, #4E65FF, #92EFFD);
+/* ✨ 增加 訂閱按鈕 上方留白 */
+#subscribe-btn {
+    margin-top: 40px; /* 增加上方空間 */
+    padding: 12px 24px; /* 維持按鈕大小 */
+    font-size: 18px;
+    font-weight: bold;
 }
 
 
+/* ❌ 灰階按鈕（取代藍色） */
+.btn.gray-gradient {
+    background: linear-gradient(135deg, #e8e2da, #D6D6D6); /* 灰色漸層 */
+    color: #414141 /* 深灰色文字 */
+}
 
+
+/* ✨ 懸停效果 */
+.btn.gray-gradient:hover {
+    background: linear-gradient(135deg, #A0A0A0, #C0C0C0);
+    transform: translateY(-3px);
+}
 
 /* 📢 提示訊息 */
 .custom-message {
@@ -337,9 +360,10 @@ hr {
 
 /* 🏆 增加 footer 與上方內容的間距 */
 .footer {
-    margin-top: 50px; /* 調整為 50px，可依需求修改 */
+    width: 100%; /* 或者 width: 90%; */
+    margin-top: 50px; 
     padding: 20px;
-    background-color: #333;
+    background-color: #545454;
     color: #fff;
     text-align: center;
 }
